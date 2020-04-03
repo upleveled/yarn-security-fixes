@@ -1,6 +1,6 @@
 # Yarn.lock Security Fixes
 
-> How to fix npm module security vulnerabilities in `yarn.lock` and `package.json`, including examples
+> How to fix npm module security vulnerabilities in `yarn.lock` and `package.json`, including [case studies](#case-studies)
 
 Security advisories are becoming more prevalent in the JavaScript / TypeScript ecosystem, with GitHub, npm, Snyk and other companies constantly researching and publishing new security vulnerabilities.
 
@@ -48,13 +48,13 @@ Switch to the `yarn.lock` file and collect the following information:
 
 #### Fix B1. Upgrade Dependent
 
-<a href="https://www.youtube.com/watch?v=tIofvKtMT3U" target="_blank">
+<a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
   <img src="upgrade-dependent.gif" alt="Screen capture illustrating steps of upgrading ancestor dependency" />
 </a>
 
 #### Fix B2. Forcing Incompatible Version Using Yarn Resolutions
 
-## Examples
+## Case Studies
 
 ### `decompress`
 

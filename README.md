@@ -17,9 +17,15 @@ This guide aims to help those with less experience apply security fixes with Yar
 
 ## Techniques
 
-### 1. Removing `yarn.lock` Entry and Running `yarn`
+### 1. New Version Compatible with Semver
 
-### 2. Yarn Resolutions
+#### 1a. Removing `yarn.lock` Entry and Running `yarn`
+
+### 2. New Version Incompatible with Semver
+
+#### 2a. Upgrading Ancestor Dependency
+
+#### 2b. Forcing Incompatible Version Using Yarn Resolutions
 
 ## Examples
 

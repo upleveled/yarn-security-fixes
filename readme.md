@@ -52,7 +52,7 @@ Switch to the `yarn.lock` file and collect the following information:
 
 ### State A. New Version Compatible with Existing Semver Ranges
 
-If the new, fixed version is compatible with all of your semver ranges of that package (check using [npm semver version calculator](https://semver.npmjs.com/)), then this is the simplest case - you can get Yarn to upgrade the single package by deleting the entry in the `yarn.lock` file ([Fix A1](#fix-a1-remove-yarn-lock-entry-and-run-yarn)).
+If the new, fixed version is compatible with all of your semver ranges of that package (check using [npm semver version calculator](https://semver.npmjs.com/)), then this is the simplest case - you can get Yarn to upgrade the single package by deleting the entry in the `yarn.lock` file ([Fix A1](#fix-a1-remove-yarnlock-entry-and-run-yarn)).
 
 #### Fix A1. Remove `yarn.lock` Entry and Run `yarn`
 
@@ -78,7 +78,7 @@ If the new, fixed version is incompatible with any of your semver ranges of that
    
    <img src="github-tags.png" width="500" alt="Git tags on GitHub" />
 
-   Check in the `package.json` under `dependencies` or `devDependencies` to see if the dependency you are interested about is at the version that you need. If it is, then you don't need to do any further steps and you can do [Fix B1](#fix-b1-upgrade-dependent-by-removing-yarn-lock-entry). If the dependency is not at the version you need, then continue on to the next step.
+   Check in the `package.json` under `dependencies` or `devDependencies` to see if the dependency you are interested about is at the version that you need. If it is, then you don't need to do any further steps and you can do [Fix B1](#fix-b1-upgrade-dependent-by-removing-yarnlock-entry). If the dependency is not at the version you need, then continue on to the next step.
 4. Repeat steps 2 and 3 with the dependent, and then the dependent which depends on the dependent, until you have reached the top level of your dependencies (one of the packages mentioned in your `package.json`).
 5. If you have reached the top level and there are no semver-compatible upgrades of any of the dependencies and transitive dependencies all the way up from the vulnerable package, then you can decide whether you want to use Yarn Resolutions to force a version to be installed which is incompatible with one of the semver ranges ([Fix B2](#fix-b2-forcing-incompatible-version-using-yarn-resolutions)) in the name of security.
 

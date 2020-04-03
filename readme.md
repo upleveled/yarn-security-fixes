@@ -58,19 +58,61 @@ If the new, fixed version is compatible with all of your semver ranges of that p
 
 Delete the entry for the package in the `yarn.lock` file and run `yarn` again.
 
+See an example of how to do this in this video:
+
 <a href="https://www.youtube.com/watch?v=iOYTpHRzL0A">
   <img src="upgrade-package.png" alt="Screen capture illustrating steps of upgrading dependency" />
 </a>
 
 ### State B. New Version Incompatible with Existing Semver Ranges
 
-#### Fix B1. Upgrade Dependent
+If the new, fixed version is incompatible with any of your semver ranges of that package (check using [npm semver version calculator](https://semver.npmjs.com/)), then you'll have to do a bit of extra digging:
+
+1. Find all of the incompatible semver ranges for affected versions
+2. Search your `yarn.lock` file with `<package name> "<semver range` for every one of these semver ranges (eg. `minimist "0.0.8`). This will show you which **dependents** are depending on this version of this package. The dependent is found at the top of the entry in which the incompatible semver range is specified.
+   
+   Eg. In the image below, `minimist "^1.2.5` is the semver range that I searched for, and above in the same block, `mkdirp@^0.5.0` and `mkdirp@^0.5.1` are the dependents which depend on it:
+   
+   <img src="dependent-in-entry.png" width="600" alt="Yarn lockfile showing mkdirp depending on minimist" />
+3. For each one of these dependents, make a note of the semver range **for the dependent** so that we can check how far we can upgrade the dependent. View the Git tags on GitHub (or whatever hosting platform the package uses) to see if there are any upgrades compatible with this range (or you can check using [npm semver version calculator](https://semver.npmjs.com/)) and then click on the tag to show the code at this version.
+   
+   <img src="github-tags.png" with="500" alt="Git tags on GitHub" />
+
+   Check in the `package.json` under `dependencies` or `devDependencies` to see if the dependency you are interested about is at the version that you need. If it is, then you don't need to do any further steps and you can do [Fix B1](#fix-b1-upgrade-dependent-by-removing-yarn-lock-entry). If the dependency is not at the version you need, then continue on to the next step.
+4. Repeat steps 2 and 3 with the dependent, and then the dependent which depends on the dependent, until you have reached the top level of your dependencies (one of the packages mentioned in your `package.json`).
+5. If you have reached the top level and there are no semver-compatible upgrades of any of the dependencies and transitive dependencies all the way up from the vulnerable package, then you can decide whether you want to use Yarn Resolutions to force a version to be installed which is incompatible with one of the semver ranges ([Fix B2](#fix-b2-forcing-incompatible-version-using-yarn-resolutions)) in the name of security.
+
+#### Fix B1. Upgrade Dependent by Removing `yarn.lock` Entry
+
+If you have found a dependent which depends on the vulnerable package, and this dependent has a semver-compatible version that depends on a fixed version of the vulnerable package, you can just remove the **dependent** entry from the `yarn.lock` file and run `yarn` again. This will upgrade both the dependent and also the vulnerable package.
+
+This applies also to dependents further up in the tree - like a grandparent or great grandparent dependent.
+
+See an example of how to do this in this video:
 
 <a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
   <img src="upgrade-dependent.png" alt="Screen capture illustrating steps of upgrading dependent" />
 </a>
 
 #### Fix B2. Forcing Incompatible Version Using Yarn Resolutions
+
+If you have exhausted all options of upgrading any packages in a semver-compatible way, then Yarn Resolutions may be used to force a version of any package to be installed, even one incompatible with the semver range specified in a dependency.
+
+For example, if the code below is added to `package.json`, it will force Yarn to use `minimist@0.2.1` for **all** versions (warning: this may lead to incompatibilities, see **Recommendation** below):
+
+```json
+  "resolutions": {
+    "minimist": "0.2.1"
+  }
+```
+
+**Recommendation:** Use Yarn Resolutions sparingly and in the most specific way possible. For example, if the problem is that `optimist` is the dependent that depends on `minimist@~0.0.1`, which is incompatible with the fixed version `minimist@0.2.1`, then you can force `minimist@0.2.1` **only** when depended on by `optimist` using the following resolution in `package.json`:
+
+```json
+  "resolutions": {
+    "**/optimist/minimist": "0.2.1"
+  }
+```
 
 ## Case Studies
 

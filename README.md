@@ -40,7 +40,7 @@ Upgrade versions below `4.2.0` to `4.2.1`.
 
 **Fix**
 
-Remove entry in `yarn.lock` and run `yarn`
+[Remove entry in `yarn.lock` and run `yarn`](https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn)
 
 https://github.com/karlhorky/gatsby-serverside-auth0/commit/fa44fb1b7a278ec066f9b8a9eb9f41b997b1287b
 
@@ -55,6 +55,6 @@ Upgrade versions between `6.0.0` and `6.0.2` to `6.0.3`.
 
 **Fix**
 
-Remove entry in `yarn.lock` and run `yarn`
+[Remove entry in `yarn.lock` and run `yarn`](https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn)
 
 https://github.com/karlhorky/next-offline-example/commit/66f2154680c45ff23af9628f33cefee1e4be3ad8

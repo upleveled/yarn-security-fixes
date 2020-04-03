@@ -17,15 +17,26 @@ This guide aims to help those with less experience apply security fixes with Yar
 
 ## Techniques
 
-### 1. New Version Compatible with Semver
+Depending on a number of factors in your project, the technique to fix a security vulnerability will be different.
 
-#### 1a. Removing `yarn.lock` Entry and Running `yarn`
+In order to choose a technique below, first follow these steps:
 
-### 2. New Version Incompatible with Semver
+1. Open the security advisory page (the page on GitHub, Snyk, etc). Note the following information:
+   - Which version(s) are marked "vulnerable" by the security advisory? (if you can use Snyk here, it is often more accurate than the GitHub Security Advisory pages)
+   - Which **new version** is required for each affected version?
+2. Open the `yarn.lock` file in the project in your editor. Check the following things:
+   - Which vulnerable version(s) are installed in your `yarn.lock`? (find the current version by searching for `<package name>@` - the actual installed version is on the next line after `version: `)
+   - For each of these vulnerable versions, are the semver version ranges on the line above compatible with the corresponding new, fixed version? If yes, your project is in [State A](#state-a-new-version-compatible-with-existing-semver-ranges). If any of the version ranges are not compatible, your project is in [State B](#state-b-new-version-incompatible-with-existing-semver-ranges).
 
-#### 2a. Upgrading Ancestor Dependency
+### State A. New Version Compatible with Existing Semver Ranges
 
-#### 2b. Forcing Incompatible Version Using Yarn Resolutions
+#### Fix A1. Remove `yarn.lock` Entry and Running `yarn`
+
+### State B. New Version Incompatible with Existing Semver Ranges
+
+#### Fix B1. Upgrade Ancestor Dependency
+
+#### Fix B2. Forcing Incompatible Version Using Yarn Resolutions
 
 ## Examples
 

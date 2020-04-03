@@ -1,4 +1,4 @@
-# Yarn.lock Security Fixes
+# Yarn Security Fixes
 
 > How to fix npm module security vulnerabilities in `yarn.lock` and `package.json`, including [case studies](#case-studies)
 

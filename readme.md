@@ -46,7 +46,11 @@ Switch to the `yarn.lock` file and collect the following information:
 
 ### State B. New Version Incompatible with Existing Semver Ranges
 
-#### Fix B1. Upgrade Ancestor Dependency
+#### Fix B1. Upgrade Dependent
+
+<a href="https://www.youtube.com/watch?v=tIofvKtMT3U" target="_blank">
+  <img src="upgrade-dependent.gif" alt="Screen capture illustrating steps of upgrading ancestor dependency" />
+</a>
 
 #### Fix B2. Forcing Incompatible Version Using Yarn Resolutions
 

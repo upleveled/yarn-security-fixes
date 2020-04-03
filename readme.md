@@ -19,14 +19,26 @@ This guide aims to help those with less experience apply security fixes with Yar
 
 Depending on a number of factors in your project, the technique to fix a security vulnerability will be different.
 
-In order to choose a technique below, first follow these steps:
+In order to choose a technique below, first open the resources that we will need:
 
-1. Open the security advisory page (the page on GitHub, Snyk, etc). Note the following information:
-   - Which version(s) are marked "vulnerable" by the security advisory? (if you can use Snyk here, it is often more accurate than the GitHub Security Advisory pages)
-   - Which **new version** is required for each affected version?
-2. Open the `yarn.lock` file in the project in your editor. Check the following things:
-   - Which vulnerable version(s) are installed in your `yarn.lock`? (find the current version by searching for `<package name>@` - the actual installed version is on the next line after `version: `)
-   - For each of these vulnerable versions, are the semver version ranges on the line above compatible with the corresponding new, fixed version? If yes, your project is in [State A](#state-a-new-version-compatible-with-existing-semver-ranges). If any of the version ranges are not compatible, your project is in [State B](#state-b-new-version-incompatible-with-existing-semver-ranges).
+1. Open the security advisory page (the page on GitHub, Snyk, etc)
+2. Open the `yarn.lock` file in the project in your editor
+
+Refer to the security advisory page and collect some information:
+
+3. Which version(s) are marked "vulnerable" by the security advisory? Use the advisory in the [Snyk Vulnerability Database](https://snyk.io/vuln/) if there is one - it is often more accurate than the GitHub Security Advisory pages.
+4. Which **new version** is required for each affected version?
+
+Switch to the `yarn.lock` file and collect the following information:
+
+5. Which vulnerable version(s) are installed in your `yarn.lock`?
+   
+   Find the current version by searching for `<package name>@` and referring to the **next line** - the actual installed version is on the next line after `version: `.
+6. For each of these vulnerable versions, check the semver version ranges on the line above (the numbers after `<package name>@`). Are all semver version ranges compatible with the corresponding new, fixed version? If you are unsure how to check compatibility, you can try the [npm semver version calculator](https://semver.npmjs.com/).
+   
+   If all the semver version ranges are compatible with the new version, congratulations, your project is in [State A](#state-a-new-version-compatible-with-existing-semver-ranges).
+   
+   If any of the version ranges are not compatible, your project is in [State B](#state-b-new-version-incompatible-with-existing-semver-ranges).
 
 ### State A. New Version Compatible with Existing Semver Ranges
 

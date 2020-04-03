@@ -76,7 +76,7 @@ If the new, fixed version is incompatible with any of your semver ranges of that
    <img src="dependent-in-entry.png" width="600" alt="Yarn lockfile showing mkdirp depending on minimist" />
 3. For each one of these dependents, make a note of the semver range **for the dependent** so that we can check how far we can upgrade the dependent. View the Git tags on GitHub (or whatever hosting platform the package uses) to see if there are any upgrades compatible with this range (or you can check using [npm semver version calculator](https://semver.npmjs.com/)) and then click on the tag to show the code at this version.
    
-   <img src="github-tags.png" with="500" alt="Git tags on GitHub" />
+   <img src="github-tags.png" width="500" alt="Git tags on GitHub" />
 
    Check in the `package.json` under `dependencies` or `devDependencies` to see if the dependency you are interested about is at the version that you need. If it is, then you don't need to do any further steps and you can do [Fix B1](#fix-b1-upgrade-dependent-by-removing-yarn-lock-entry). If the dependency is not at the version you need, then continue on to the next step.
 4. Repeat steps 2 and 3 with the dependent, and then the dependent which depends on the dependent, until you have reached the top level of your dependencies (one of the packages mentioned in your `package.json`).

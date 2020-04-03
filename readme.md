@@ -4,18 +4,24 @@
 
 Security advisories are becoming more prevalent in the JavaScript / TypeScript ecosystem, with GitHub, npm, Snyk and other companies constantly researching and publishing new security vulnerabilities.
 
-In some cases, these fixes will be applied automatically by bots like [Dependabot](https://dependabot.com/) (built in to GitHub), [Renovate Bot](https://renovate.whitesourcesoftware.com/) ([**highly recommended!**](https://twitter.com/karlhorky/status/1245009)) or the [Snyk bot](https://support.snyk.io/hc/en-us/articles/360004032117-GitHub-scan-monitor-and-remediate). I definitely recommend setting these up first!
+This guide aims to help those with less experience apply manual security vulnerability fixes with Yarn.
 
-However, these bots are not always able to come up with an automated fix for a fixable security vulnerability:
+## Enable Bots First!
+
+In some cases, these fixes will be applied automatically by bots like [Dependabot](https://dependabot.com/) (built in to GitHub), [Renovate Bot](https://renovate.whitesourcesoftware.com/) ([**highly recommended!**](https://twitter.com/karlhorky/status/1245009)) or the [Snyk bot](https://support.snyk.io/hc/en-us/articles/360004032117-GitHub-scan-monitor-and-remediate).
+
+**Recommendation:** Definitely set up the bots first (Renovate, Snyk and Dependabot)! They will fix many issues automatically for you, and keep your top-level dependencies in `package.json` up to date.
+
+## Transitive Dependency Updates
+
+However, these bots are not always able to come up with an automated fix for a fixable security vulnerability, especially with "transitive dependencies" (sub-dependencies of your dependencies - not found in `package.json`):
 
 - [Dependabot failures](https://twitter.com/karlhorky/status/1239183744625446919)
 - [Snyk Bot failures](https://twitter.com/karlhorky/status/1244712138511351809)
 
 It can be difficult to know what to do with these security vulnerabilities, especially for those with less experience with package managers and how dependencies are resolved by Yarn and npm.
 
-This guide aims to help those with less experience apply security fixes with Yarn.
-
-## Techniques
+## Techniques to Fix Transitive Dependencies
 
 Depending on a number of factors in your project, the technique to fix a security vulnerability will be different.
 
@@ -49,7 +55,7 @@ If the new, fixed version is compatible with all of your semver ranges of that p
 Delete the entry for the package in the `yarn.lock` file and run `yarn` again.
 
 <a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
-  <img src="upgrade-dependent.gif" alt="Screen capture illustrating steps of upgrading ancestor dependency" />
+  <img src="upgrade-package.png" alt="Screen capture illustrating steps of upgrading dependency" />
 </a>
 
 ### State B. New Version Incompatible with Existing Semver Ranges
@@ -57,7 +63,7 @@ Delete the entry for the package in the `yarn.lock` file and run `yarn` again.
 #### Fix B1. Upgrade Dependent
 
 <a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
-  <img src="upgrade-dependent.gif" alt="Screen capture illustrating steps of upgrading ancestor dependency" />
+  <img src="upgrade-dependent.png" alt="Screen capture illustrating steps of upgrading dependent" />
 </a>
 
 #### Fix B2. Forcing Incompatible Version Using Yarn Resolutions

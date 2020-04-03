@@ -113,3 +113,9 @@ For example, if the code below is added to `package.json`, it will force Yarn to
     "**/optimist/minimist": "0.2.1"
   }
 ```
+
+See an example of how to do this in this video:
+
+<a href="https://www.youtube.com/watch?v=tqd1U7JaNAo">
+  <img src="force-semver-incompat-version.png" alt="Forcing a semver incompatible version using Yarn Resolutions" />
+</a>

@@ -11,7 +11,7 @@ This guide aims to help those with less experience apply manual security vulnera
 In some cases, these fixes will be applied automatically by bots like:
 
 - [Dependabot](https://dependabot.com/) (built in to GitHub)
-- [Renovate Bot](https://renovate.whitesourcesoftware.com/) ([**highly recommended!**](https://twitter.com/karlhorky/status/1245009))
+- [Renovate Bot](https://renovate.whitesourcesoftware.com/) ([**recommended**](https://twitter.com/karlhorky/status/1245009))
 - the [Snyk bot](https://support.snyk.io/hc/en-us/articles/360004032117-GitHub-scan-monitor-and-remediate)
 
 **Recommendation:** Definitely set up the bots first (Renovate, Snyk and Dependabot)! They will fix many issues automatically for you, and keep your top-level dependencies in `package.json` up to date.

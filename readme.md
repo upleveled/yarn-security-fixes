@@ -54,7 +54,7 @@ If the new, fixed version is compatible with all of your semver ranges of that p
 
 Delete the entry for the package in the `yarn.lock` file and run `yarn` again.
 
-<a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
+<a href="https://www.youtube.com/watch?v=iOYTpHRzL0A">
   <img src="upgrade-package.png" alt="Screen capture illustrating steps of upgrading dependency" />
 </a>
 

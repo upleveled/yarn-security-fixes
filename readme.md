@@ -42,7 +42,15 @@ Switch to the `yarn.lock` file and collect the following information:
 
 ### State A. New Version Compatible with Existing Semver Ranges
 
-#### Fix A1. Remove `yarn.lock` Entry and Running `yarn`
+If the new, fixed version is compatible with all of your semver ranges of that package (check using [npm semver version calculator](https://semver.npmjs.com/)), then this is the simplest case - you can get Yarn to upgrade the single package by deleting the entry in the `yarn.lock` file ([Fix A1](#fix-a1-remove-yarn-lock-entry-and-run-yarn)).
+
+#### Fix A1. Remove `yarn.lock` Entry and Run `yarn`
+
+Delete the entry for the package in the `yarn.lock` file and run `yarn` again.
+
+<a href="https://www.youtube.com/watch?v=tIofvKtMT3U">
+  <img src="upgrade-dependent.gif" alt="Screen capture illustrating steps of upgrading ancestor dependency" />
+</a>
 
 ### State B. New Version Incompatible with Existing Semver Ranges
 

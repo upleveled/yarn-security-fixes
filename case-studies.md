@@ -1,5 +1,7 @@
 # Case Studies
 
+Example case studies of how recent npm / Yarn security vulnerabilities from GitHub security advisories were fixed with Yarn (v1), either by editing lockfiles or by using Yarn Resolutions.
+
 ## `decompress`
 
 ### `<4.2.1` - Arbitrary File Write Fix

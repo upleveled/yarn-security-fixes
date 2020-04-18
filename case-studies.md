@@ -17,6 +17,21 @@ Upgrade versions below `4.2.0` to `4.2.1`.
 
 Commits: https://github.com/karlhorky/gatsby-serverside-auth0/commit/fa44fb1b7a278ec066f9b8a9eb9f41b997b1287b
 
+## `https-proxy-agent`
+
+### `<2.2.3` - Machine-In-The-Middle
+
+Upgrade versions before `2.2.3` to at least `2.2.3`.
+
+- **Advisory:** https://www.npmjs.com/advisories/1184
+- **GitHub PR:** https://github.com/TooTallNate/node-https-proxy-agent/commit/36d8cf509f877fa44f4404fce57ebaf9410fe51b
+
+#### Fix
+
+1. Remove entry in `yarn.lock` and run `yarn`: https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn
+
+Commits: https://github.com/upleveled/course-material/commit/5a2344a41fccd45ee46d1cf9197e0cd4e14bdfca
+
 ## `kind-of`
 
 ### `>=6.0.0 <6.0.3` - Information Exposure

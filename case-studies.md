@@ -62,3 +62,18 @@ Upgrade versions below `0.2.1` to `0.2.1` and versions between `1.0.0` and `1.2.
 2. Use Yarn Resolutions to force semver-incompatible version `minimist@0.2.1` and override semver range `minimist@~0.0.1` in `optimist`: https://github.com/karlhorky/yarn-security-fixes#fix-b2-forcing-incompatible-version-using-yarn-resolutions
 
 Commits: https://github.com/karlhorky/react-malarkey/commit/0cde1f67d7770c91ffa5d8566e8c45de5f4d2d21
+
+## `websocket-extensions`
+
+### `<0.1.4` - Regular Expression Denial of Service
+
+Upgrade versions below `0.1.4` to `0.1.4`.
+
+- **Advisory:** https://github.com/advisories/GHSA-g78m-2chm-r7qv
+- **GitHub Commit:** https://github.com/faye/websocket-extensions-node/commit/29496f6838bfadfe5a2f85dff33ed0ba33873237
+
+#### Fix
+
+1. Remove entry of `websocket-extensions@0.1.4` in `yarn.lock` and run `yarn`: https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn
+
+Commits: https://github.com/karlhorky/shopify-landing-clone/commit/11dc1c30a60fac5671dfb70cada13b7ad69f81ce

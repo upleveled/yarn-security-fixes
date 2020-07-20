@@ -47,6 +47,21 @@ Upgrade versions between `6.0.0` and `6.0.2` to `6.0.3`.
 
 Commits: https://github.com/karlhorky/next-offline-example/commit/66f2154680c45ff23af9628f33cefee1e4be3ad8
 
+## `lodash`
+
+### `<4.17.19` - Prototype Pollution
+
+Upgrade versions below `4.17.19` to `4.17.19`.
+
+- **Advisory:** https://www.npmjs.com/advisories/1523
+- **GitHub Commit:** https://github.com/lodash/lodash/commit/c84fe82760fb2d3e03a63379b297a1cc1a2fce12
+
+#### Fix
+
+1. Remove entry of `lodash` in `yarn.lock` and run `yarn`: https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn
+
+Commits: https://github.com/upleveled/upleveled-vscode-eslint-base-config/commit/77d83e8b7f4dbffce9a39bb9c41e10ab61584759
+
 ## `minimist`
 
 ### `<0.2.1 || >=1.0.0 <1.2.3` - Prototype Pollution

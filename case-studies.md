@@ -32,6 +32,21 @@ Upgrade versions before `2.2.3` to at least `2.2.3`.
 
 Commits: https://github.com/devonfw/devon4ng-library/pull/10/commits/e77e3e7c7e522ac7653ede9136e641d7dcda6048
 
+## `jpeg-js`
+
+### `<0.4.0` - Uncontrolled resource consumption
+
+Upgrade versions below `0.4.0` to `0.4.0`.
+
+- **Advisory:** https://github.com/advisories/GHSA-w7q9-p3jq-fmhm
+- **GitHub Commit:** https://github.com/eugeneware/jpeg-js/commit/135705b1510afb6cb4275a4655d92c58f6843e79
+
+#### Fix
+
+1. Use Yarn Resolutions to force semver-incompatible version `jpeg-js@0.4.1` and override semver range `jpeg-js@^0.3.4` in `@jimp/jpeg@^0.10.3` (dependency chain: `@jimp/types` <- `jimp` <- `potrace` <- `gatsby-plugin-sharp` and `gatsby-transformer-sharp`): https://github.com/karlhorky/yarn-security-fixes#fix-b2-forcing-incompatible-version-using-yarn-resolutions
+
+Commits: https://github.com/upleveled/gatsby-serverside-auth0/commit/45b8183473dc6d49b00f19ade34cd78510bc944f
+
 ## `kind-of`
 
 ### `>=6.0.0 <6.0.3` - Information Exposure

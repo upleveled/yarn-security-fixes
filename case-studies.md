@@ -30,7 +30,7 @@ Upgrade versions before `2.2.3` to at least `2.2.3`.
 
 1. Remove entry in `yarn.lock` and run `yarn`: https://github.com/karlhorky/yarn-lock-security-fixes/blob/master/README.md#1a-removing-yarnlock-entry-and-running-yarn
 
-Commits: https://github.com/upleveled/course-material/commit/5a2344a41fccd45ee46d1cf9197e0cd4e14bdfca
+Commits: https://github.com/devonfw/devon4ng-library/pull/10/commits/e77e3e7c7e522ac7653ede9136e641d7dcda6048
 
 ## `kind-of`
 
